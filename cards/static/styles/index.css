@@ -78,7 +78,9 @@ body {
   width: 100%;
   position: relative;
   bottom: 15px;
-
+  font-family: Impact, fantasy;
+  font-size: 40px;
+  
 }
 
 .appbar {
@@ -91,7 +93,8 @@ body {
   background-color: #3957bd;
   height: 80px;
   width: 100%;
-
+  position: fixed;
+  top: 0px;
 }
 
 
@@ -103,21 +106,23 @@ body {
   align-items: stretch;
   align-content: center;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 235px;
   margin-bottom: 25px;
   height: 160px;
   width: 600px;
   padding-top: 30px;
   box-shadow: 0 0 1em #3957bd;
   border-radius: 1%;
+  background-color: #ffff;
 }
 
 .form-card-title {
   border: none;
   font-size: 18px;
-  width: 60%;
-  margin-left: 35%;
+  width: 90%;
+  margin-left: 5%;
   margin-bottom: 8%;
+  
 }
 
 .autoresize {

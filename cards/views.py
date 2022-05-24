@@ -6,9 +6,9 @@ def index(request):
     if request.method == 'POST':
         card=Card()
         title=request.POST.get('title')
-        content=request.POST.get('content')
+        #content=request.POST.get('content')
         card.title=title
-        card.content=content
+        #card.content=content
         card.save()
         return redirect('index')
     else:
