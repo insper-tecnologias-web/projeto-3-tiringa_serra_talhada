@@ -46,7 +46,7 @@ def pegar_apartamentos(num_paginas,ap):
 def data(lista):
     #listas necessárias
     lista_tipo=[]
-    lista_imagem=[]
+   
     lista_rua=[]
     lista_bairro=[]
     lista_area=[]
@@ -60,10 +60,7 @@ def data(lista):
     for i in range(0, len(lista)):
         ap = lista[i] #procura cada lista de apartamentos
         #tipo do ap
-        imagem = ap.find('img', class_="realtyCardImagesstyle__ImageRealty-sc-11vdyejw-0 dfIThs").img
-        imagem.get('src')
-
-        lista_imagem.append(imagem)
+       
         #tipo do ap
         tipo=ap.find('div',attrs={'class': "card-title h5"}).text
         lista_tipo.append(tipo)
@@ -112,7 +109,7 @@ def data(lista):
         lista_aluguel_total.append(aluguel)
     
     df = pd.DataFrame({'Tipo': lista_tipo,
-                    'Imagem':lista_imagem,
+                   
                    'Rua': lista_rua,
                    'Bairro': lista_bairro,
                    'Area': lista_area,
