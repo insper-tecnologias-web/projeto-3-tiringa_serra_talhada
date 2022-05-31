@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="{% static 'cards/img/logo.png' %}" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Get-it - Como o Post-it, mas com outro verbo</title>
+    <title>CadêMeuImóvel.com</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -33,58 +33,24 @@
       
       <main class="container">
       
-        <form class="form-card" method="post" id="form-container">
+        <form action="bairroSelecionado" class="form-card" method="post" id="form-container">
+
             {% csrf_token %}
-            <select name="title" class="form-card-title">
-                <!-- required
-                class="form-card-title"
-                type="text"
-                name="title"
-                placeholder="Busque o seu bairro"
-                readOnly -->
-                <option value="title" selected disabled hidden>Buscar seu bairro ...</option>
-                <option value="title">Moema</option>
-                <option value="title">Indianópolis</option>
-                <option value="title">Vila Olímpia</option>
-            </select>
-              
-              <button class="btn" type="submit" style="color: #ffff">Buscar Imóveis</button>   
-        </form>
-      
-       <ul class="card-container">
-          {% for card in cards %}
-            <!-- {% block cards %}{% endblock %} -->
-            <div class="card" key="{{ card.id }}">
-              <form method="post" action="{% url 'update' card.id %}">
-                {% csrf_token %}
-                <button class="card-update-button" type="submit" id="{{ card.id }}">
-                  <i class="fa fa-save"></i>
-                </button>
-                <input
-                  value="{{ card.title }}"
-                  name="title"
-                  class="card-title inputcard"
-                  key="{{ card.id }}"
-                />
-                <!-- <textarea
-                  value="{{ card.content }}"
-                  name="content"
-                  class="card-content inputcard"
-                  key="{{ card.id }}"
-                > 
-                    {{ card.content }}</textarea
-                > -->
-              </form>
-              <form class="card_delete" method="post" action="{% url 'delete' card.id %}">
-                {% csrf_token %}
-                <input type="image" src="{% static 'cards/img/x.png' %}" class="x"/>
-              </form>
-            </div>
-          {% endfor %}
-       </ul>
-      
+            <select name="bairro" class="form-card-title">
+                <option value="teste" selected disabled hidden>Buscar seu bairro ...</option>
+                {% for card in cards %}
+                  <option name="title" value="{{ card.Bairro }}">{{ card.Bairro }}</option>
+                {% endfor %}
+              </select>
+              <input type="submit" value="Buscar Imóveis" class="btn" style="color : #ffff">
+            <!-- <a href="imoveis.html">   -->
+              <!-- <button class="btn" type="submit" style="color: #ffff">
+                Buscar Imóveis
+              </button>    -->
+            <!-- </a> -->
+          </form>
       </main>
-      <script type="text/javascript" src="{% static 'script/getit.js' %}"></script>
+      
   </body>
 </html>
 
