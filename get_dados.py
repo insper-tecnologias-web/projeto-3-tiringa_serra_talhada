@@ -1,6 +1,7 @@
 
 from base64 import encode
 from re import A
+from matplotlib import image
 # import seaborn as sns
 # import matplotlib as plt
 # import numpy as np
@@ -45,6 +46,7 @@ def pegar_apartamentos(num_paginas,ap):
 def data(lista):
     #listas necessárias
     lista_tipo=[]
+    lista_imagem=[]
     lista_rua=[]
     lista_bairro=[]
     lista_area=[]
@@ -57,6 +59,11 @@ def data(lista):
 
     for i in range(0, len(lista)):
         ap = lista[i] #procura cada lista de apartamentos
+        #tipo do ap
+        imagem = ap.find('img', class_="realtyCardImagesstyle__ImageRealty-sc-11vdyejw-0 dfIThs").img
+        imagem.get('src')
+
+        lista_imagem.append(imagem)
         #tipo do ap
         tipo=ap.find('div',attrs={'class': "card-title h5"}).text
         lista_tipo.append(tipo)
@@ -105,9 +112,10 @@ def data(lista):
         lista_aluguel_total.append(aluguel)
     
     df = pd.DataFrame({'Tipo': lista_tipo,
+                    'Imagem':lista_imagem,
                    'Rua': lista_rua,
                    'Bairro': lista_bairro,
-                   'Área': lista_area,
+                   'Area': lista_area,
                    'Quartos':lista_quartos,
                     'Vagas':lista_vagas,
                     'Banheiros':lista_banheiros,
@@ -115,9 +123,12 @@ def data(lista):
                   })
         
     return df
+def mudar_data_to_json(df):
+    return df.to_json(orient='records') 
+def run(num_paginas,ap):
+    pegar_paginas(num_paginas,ap)
+    lista=pegar_apartamentos(num_paginas,ap)
+    print(mudar_data_to_json(data(lista)))
+list_dict=run(4,'card-body')
 
-flat_list=pegar_apartamentos(4,"card-body")
-# print(len(flat_list))    
-df=data(flat_list)
-exemplo=df.to_json(orient='records')
-print(exemplo)
+
