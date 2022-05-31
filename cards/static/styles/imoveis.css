@@ -156,11 +156,11 @@ body {
 .card {
   border-radius: 10%;
   flex-direction: column;
-  box-shadow: 0 0 0.5em #4c4c4c;
+  box-shadow: 0 0 0.5em #3957bd;
   padding: 10px;
   margin: 6px 5px 12px 5px;
   width: 22%;
-  height: 300px;
+  height: 370px;
 }
 
 p {
@@ -176,7 +176,6 @@ p {
 }
 
 .card-content {
-  display: flex;
   font-family: 'Roboto', sans-serif;
   justify-content: center;
   align-items: center;
@@ -193,6 +192,81 @@ p {
   height: 110px;
 }
 
+.tipo{
+    color: #808080;
+    margin: 1%;
+}
 
+.rua{
+    font-weight: bold;
+    left: 20%;
+    top: 32px;
+    margin: 1%;
+    font-size: 20px;
+}
 
+.bairro{
+    margin: 1%;
+    color: #808080;
+}
 
+.area{
+}
+
+.quartos{
+}
+
+.banheiros{
+}
+
+.vagas{
+}
+
+.valor{
+    font-size: 17px;
+    font-weight: bold;
+    display: flex;
+    margin: 10px 0px 0px 0px;;
+    flex-direction: row;
+}
+
+.img_imovel{
+    width: 100%;
+    border-radius: 10%;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 12px;
+    margin: 1%;
+    font-weight: bold;
+}
+
+.area_icone{
+    width: 7%;
+}
+
+.quartos_icone{
+    width: 7%;
+}
+
+.banheiros_icone{
+    width: 7%;
+}
+
+.vagas_icone{
+    width: 7%;
+}
+
+.card-update-button{
+    margin-left: -120px;
+    background: transparent;
+    outline: 0;
+    border: none;
+}
+
+.coracao{
+    width: 12%;
+}

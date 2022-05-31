@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Card
+from ajuda import lista_imoveis
 
 
 def index(request):
@@ -12,8 +13,20 @@ def index(request):
         card.save()
         return redirect('index')
     else:
-        allCards = Card.objects.all()
-        return render(request, 'cards/index.html', {'cards': allCards})
+        return render(request, 'cards/index.html', {'cards': lista_imoveis})
+        
+def imoveis(request):
+    salvaImoveis()
+    title=request.POST.get('bairro')
+    #content=request.POST.get('content')
+    print(title)
+    apartamentos = Card.objects.filter(bairro = title)
+    # card=Card()
+    # card.title=title
+    # card.content=content
+    # card.save()
+    return render(request, 'cards/imoveis.html', {'cards': apartamentos})
+        
 
 def delete(request, id):
     card=Card.objects.get(id=id)
@@ -23,3 +36,33 @@ def delete(request, id):
 def edita(request,id):    
     Card.objects.filter(id=id).update(title=request.POST.get('title'), content=request.POST.get('content'))
     return redirect('index')
+
+########################## ADNEY
+def pegaImoveis():
+    # faz scarpping
+    return lista_imoveis
+
+def salvaImoveis():
+    imoveis = pegaImoveis()
+    for imovel in imoveis:
+        rua = imovel['Rua']
+        bairro = imovel['Bairro']
+        quartos = imovel['Quartos']
+        vagas = imovel['Vagas']
+        banheiros = imovel['Banheiros']
+        preco = imovel['Preco']
+        card = Card(rua = rua, bairro= bairro, quartos=quartos, vagas=vagas, banheiros=banheiros, preco=preco)
+        card.save()
+
+def bairroSelecionado(request):
+    bairro = request.POST.get('bairro')
+    apartamentos = []
+    for imovel in lista_imoveis:
+        print(imovel['Bairro'])
+        if imovel['Bairro'] == bairro:
+            apartamentos.append(imovel)
+    return render(request, 'cards/imoveis.html', {'cards': apartamentos})
+
+
+
+
