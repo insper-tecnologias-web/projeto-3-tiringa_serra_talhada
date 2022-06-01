@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Card
-from ajuda import lista_imoveis
+from webscraping import lista_imoveis,lista_bairros
 
 
 def index(request):
@@ -13,7 +13,7 @@ def index(request):
         card.save()
         return redirect('index')
     else:
-        return render(request, 'cards/index.html', {'cards': lista_imoveis})
+        return render(request, 'cards/index.html', {'cards': lista_bairros})
         
 def imoveis(request):
     salvaImoveis()
