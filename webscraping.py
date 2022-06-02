@@ -163,6 +163,6 @@ def plota_area_versus_preco(df):
     plt.savefig('C:\\Users\\ricar\\OneDrive - Insper - Institudo de Ensino e Pesquisa\\Quarto Semestre\\TECWEB\\PROJETO3\\projeto-3-tiringa_serra_talhada\\cards\\static\\cards\\img\\ala2.png')
     
 
-lista_imoveis=run(4,'card-body')
-lista_bairros = dataframe(4,'card-body')
+lista_imoveis=run(30,'card-body')
+lista_bairros = dataframe(30,'card-body')
 
