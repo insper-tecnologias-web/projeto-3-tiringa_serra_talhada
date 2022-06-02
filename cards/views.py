@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Card
 from webscraping import *
 
-pegar_paginas(30,'card-body')
-lista=pegar_apartamentos(30,'card-body')
+pegar_paginas(4,'card-body')
+lista=pegar_apartamentos(4,'card-body')
 dados = data(lista)
 bairros_mais_baratos, precos_mais_baratos = bairros_baratos(dados)
 plota_bairros_baratos(bairros_mais_baratos,precos_mais_baratos)
