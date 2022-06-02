@@ -17,6 +17,7 @@ import requests
 # para extrair informações de páginas HTML
 #import bs4
 from bs4 import BeautifulSoup
+import matplotlib.pyplot as plt
 #import time
 
 
@@ -133,5 +134,35 @@ def dataframe(num_paginas, ap):
     dados = data(lista)
     lista_bairros = dados['Bairro'].unique()
     return lista_bairros
+def bairros_baratos(df):
+    df1 = df.groupby(['Bairro']).agg({'Preco': 'mean'}).reset_index()
+    precos_mais_baratos = list(df1.sort_values(by='Preco',ascending=True).head(5)['Preco'])
+    bairros_mais_baratos = list(df1.sort_values(by='Preco',ascending=True).head(5)['Bairro']) 
+    return bairros_mais_baratos, precos_mais_baratos
+def plota_bairros_baratos(bairros_mais_baratos,precos_mais_baratos):
+    plt.figure(figsize=(9,6))
+    parameters = {'axes.labelsize': 10,
+            'axes.titlesize': 15}
+    plt.rcParams.update(parameters)
+    plt.ylim(0,400000)
+    plt.title('Média dos Alugueis de Bairros mais baratos de São Paulo')
+    plt.bar(bairros_mais_baratos,precos_mais_baratos, color='#3957bd')
+    plt.xlabel('Bairros')
+    plt.ylabel('Preços')
+    plt.savefig('C:\\Users\\ricar\\OneDrive - Insper - Institudo de Ensino e Pesquisa\\Quarto Semestre\\TECWEB\\PROJETO3\\projeto-3-tiringa_serra_talhada\\cards\\static\\cards\\img\\ala.png')
+
+def plota_area_versus_preco(df):
+    plt.figure(figsize=(9,6))
+    parameters = {'axes.labelsize': 10,
+            'axes.titlesize': 15}
+    plt.rcParams.update(parameters)
+    plt.title('Correlação entre Área vs Preços')
+    plt.scatter(df['Preco'],df['Area'], color='#3957bd')
+    plt.xlabel('Preço')
+    plt.ylabel('Área')
+    plt.savefig('C:\\Users\\ricar\\OneDrive - Insper - Institudo de Ensino e Pesquisa\\Quarto Semestre\\TECWEB\\PROJETO3\\projeto-3-tiringa_serra_talhada\\cards\\static\\cards\\img\\ala2.png')
+    
+
 lista_imoveis=run(4,'card-body')
 lista_bairros = dataframe(4,'card-body')
+

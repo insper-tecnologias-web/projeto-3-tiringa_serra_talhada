@@ -163,6 +163,11 @@ body {
   height: 370px;
 }
 
+.card:hover {
+    transform: scale(1.1);
+    transition-duration: 0.4s;
+}
+
 p {
   font-family: 'Permanent Marker', cursive;
   color: #666565;
@@ -221,6 +226,7 @@ p {
 
 .vagas{
 }
+
 
 .valor{
     font-size: 17px;

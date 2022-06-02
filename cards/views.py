@@ -1,10 +1,16 @@
 from django.shortcuts import render, redirect
 from .models import Card
-from webscraping import lista_imoveis,lista_bairros
+from webscraping import *
 
-
+pegar_paginas(4,'card-body')
+lista=pegar_apartamentos(4,'card-body')
+dados = data(lista)
+bairros_mais_baratos, precos_mais_baratos = bairros_baratos(dados)
+plota_bairros_baratos(bairros_mais_baratos,precos_mais_baratos)
+plota_area_versus_preco(dados)
 def index(request):
     if request.method == 'POST':
+        
         card=Card()
         title=request.POST.get('title')
         #content=request.POST.get('content')

@@ -6,7 +6,7 @@ body {
 /* Você pode usar o CSS comentado abaixo, se ajudar */
 /* Fonte: https://codepen.io/CrisWoler/pen/ogXBLj */
  .btn {
-  position: relative;
+  
   display: block;
   padding: 10px 15px;
 
@@ -106,13 +106,13 @@ body {
   align-items: stretch;
   align-content: center;
   margin: auto;
-  margin-top: 235px;
+  margin-top: -364px;
   margin-bottom: 25px;
   height: 160px;
   width: 600px;
   padding-top: 30px;
   box-shadow: 0 0 1em #3957bd;
-  border-radius: 1%;
+  border-radius: 10%;
   background-color: #ffff;
 }
 
@@ -133,6 +133,15 @@ body {
 }
 
 .card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;  
+  align-content: center; 
+}
+
+.card-container1{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -163,6 +172,7 @@ body {
   height: 300px;
 }
 
+
 p {
   font-family: 'Permanent Marker', cursive;
   color: #666565;
@@ -190,9 +200,23 @@ p {
 }
 
 .ajeita{
-  height: 110px;
+  height: 148px;
 }
 
+.graf1{
+  height: 417px;
+}
 
+.graf1:hover {
+  transform: scale(1.1);
+  transition-duration: 0.4s;
+}
 
-
+.analisa{
+  font-size: 40px;
+  font-family: Impact, fantasy;
+  color: #3957bd;
+  margin: 20px;
+  background: papayawhip;
+  text-align: center;
+}
