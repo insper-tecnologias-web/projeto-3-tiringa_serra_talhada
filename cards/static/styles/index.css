@@ -172,6 +172,14 @@ body {
   height: 300px;
 }
 
+.seila{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;  
+  align-content: center; 
+}
 
 p {
   font-family: 'Permanent Marker', cursive;
