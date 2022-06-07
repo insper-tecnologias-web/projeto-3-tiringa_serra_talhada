@@ -1,5 +1,7 @@
 # Tecnologias Web
 
+site heroku: https://intense-brushlands-34166.herokuapp.com/
+
 ## Arquitetura
 ![image](https://user-images.githubusercontent.com/72896483/169294352-3456640b-e377-4d06-b07d-d82595e7411c.png)
 
