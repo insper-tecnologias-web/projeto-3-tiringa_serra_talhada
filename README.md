@@ -19,3 +19,11 @@ site heroku: https://intense-brushlands-34166.herokuapp.com/
 - [x] Arquivos HTML, CSS, JS
 - [ ] Fazer gráficos com JS
 - [x] Conectar django com os dicionarios e front.
+
+
+
+# Instruções para rodar o código
+- Clonar o repositório
+- Criar o ambiente virtual -> python3 -m venv NOME_DA_PASTA_DO_VENV
+- Ativar ambiente virtual -> env\Scripts\activate.bat
+- Abrir no localhost.
